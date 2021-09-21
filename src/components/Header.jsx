@@ -1,7 +1,7 @@
 import React from "react";
 
 import logo from "../assets/images/Logo-2.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const mainNav = [
   {
@@ -23,6 +23,8 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const activeNav = mainNav.findIndex((e) => e.path === pathname);
   return (
     <div className="header">
       <div className="container">
@@ -42,7 +44,9 @@ const Header = () => {
             {mainNav.map((item, index) => (
               <div
                 key={index}
-                className="header__menu__item header__menu__left__item"
+                className={`header__menu__item header__menu__left__item ${
+                  index === activeNav ? "active" : ""
+                }`}
               >
                 <Link to={item.path}>
                   <span>{item.display}</span>
