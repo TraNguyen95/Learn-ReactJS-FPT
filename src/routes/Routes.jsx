@@ -9,6 +9,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/ecommerce-shop" exact component={Home} />
       <Route path="/catalog/:slug" component={Product} />
       <Route path="/catalog" component={Catalog} />
       <Route path="/cart" component={Cart} />
